@@ -1,0 +1,6 @@
+@import "../../node_modules/normalize.css/normalize.css";
+@import "default.css";
+@import "fonts.css";
+@import "pages/index/main.css";
+@import "pages/index/partials/header.css";
+

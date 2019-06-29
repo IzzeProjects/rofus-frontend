@@ -1,0 +1,23 @@
+.content {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 25px 0;
+}
+
+.main-wrapper {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  background-attachment: fixed;
+}
+
+.main-content {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  height: 100%;
+  color: #dedede;
+}
+
