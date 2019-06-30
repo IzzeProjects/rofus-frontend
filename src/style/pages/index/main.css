@@ -50,3 +50,8 @@
   background-color: rgba(22,23,25,.81);
 }
 
+.main-cards-container {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}

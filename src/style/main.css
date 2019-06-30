@@ -3,4 +3,5 @@
 @import "fonts.css";
 @import "pages/index/main.css";
 @import "pages/index/partials/header.css";
+@import "pages/index/partials/profile-cards.css";
 @import "partials/login-modal.css";
