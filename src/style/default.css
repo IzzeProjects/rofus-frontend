@@ -6,3 +6,11 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+input {
+  border: 0;
+}
+
+button {
+  border: 0;
+}

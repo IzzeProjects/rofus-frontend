@@ -1,15 +1,16 @@
 // Vue main file
 
 import {main} from './moduels'
-import Test from './components/GFGfg.vue'
 import Vue from 'vue'
+import LoginForm from './components/LoginForm'
 
 window.onload = () => {
     main()
 }
 
 // ----------------------use-section-------------------------------------------->
-Vue.component('tesy', Test)
+
+Vue.component('login-form', LoginForm)
 
 // ----------------------------------------------------------------------------->
 
