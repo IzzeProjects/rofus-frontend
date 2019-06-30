@@ -84,7 +84,7 @@
             move(e) {
                 let coords = this.calculate(e);
                 this.container.style.zIndex = 1
-                this.avatar.style.trasition = "none"
+                this.avatar.style.trasition = ""
                 this.avatar.style.transform = "perspective(450px)  rotateX(" + coords.x + "deg) rotateY(" + coords.y + "deg) scale3d(1.05, 1.05, 1.05)"
             },
             leave() {
