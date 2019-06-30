@@ -2,7 +2,9 @@
 
 import {main} from './moduels'
 import Vue from 'vue'
-import LoginForm from './components/LoginForm'
+import LoginForm from './components/forms/LoginForm'
+import RegisterForm from './components/forms/RegisterForm'
+import CallbackForm from './components/forms/CallbackForm'
 
 window.onload = () => {
     main()
@@ -11,6 +13,8 @@ window.onload = () => {
 // ----------------------use-section-------------------------------------------->
 
 Vue.component('login-form', LoginForm)
+Vue.component('register-form', RegisterForm)
+Vue.component('callback-form', CallbackForm)
 
 // ----------------------------------------------------------------------------->
 
