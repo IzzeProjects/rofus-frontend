@@ -5,6 +5,8 @@ import Vue from 'vue'
 import LoginForm from './components/forms/LoginForm'
 import RegisterForm from './components/forms/RegisterForm'
 import CallbackForm from './components/forms/CallbackForm'
+import VeeValidate, { Validator } from 'vee-validate';
+import ru from 'vee-validate/dist/locale/ru';
 
 window.onload = () => {
     main()
@@ -12,14 +14,24 @@ window.onload = () => {
 
 // ----------------------use-section-------------------------------------------->
 
-Vue.component('login-form', LoginForm)
-Vue.component('register-form', RegisterForm)
-Vue.component('callback-form', CallbackForm)
+Vue.use(VeeValidate, {
+    classes: true,
+    classNames: {
+        valid: 'is-valid',
+        invalid: 'is-invalid'
+    }
+});
+
+Validator.localize('ru', ru);
 
 // ----------------------------------------------------------------------------->
 
 
 // ----------------------component-section-------------------------------------->
+
+Vue.component('login-form', LoginForm)
+Vue.component('register-form', RegisterForm)
+Vue.component('callback-form', CallbackForm)
 
 // ----------------------------------------------------------------------------->
 

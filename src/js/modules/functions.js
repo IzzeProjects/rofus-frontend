@@ -4,7 +4,7 @@ let clickOutside = function clickOutside(e) {
     let needClose = true
     if (e.target === elem) {
         for (var key in items) {
-            if (items[key] == e.target) {
+            if (items[key] === e.target) {
                 needClose = false
                 break
             }

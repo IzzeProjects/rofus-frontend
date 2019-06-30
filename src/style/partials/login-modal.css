@@ -80,3 +80,9 @@
   content: ' *';
   color: red;
 }
+
+.modal-wrapper-form__error {
+  color: red;
+  font-size: 12px;
+  margin-top: 10px;
+}

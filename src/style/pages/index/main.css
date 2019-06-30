@@ -1,5 +1,6 @@
 .content {
-  width: 1200px;
+  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 25px 0;
 }
@@ -9,8 +10,19 @@
   height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
-  position: relative;
+  position: absolute;
+  left: 0;
+  top: 0;
   background-attachment: fixed;
+}
+
+.main-wrapper:nth-child(2n) {
+  top: 100%;
+}
+
+.mod-center {
+  align-items: center;
+  justify-content: center;
 }
 
 .main-content {
@@ -19,5 +31,22 @@
   justify-content: center;
   height: 100%;
   color: #dedede;
+}
+
+.main-title {
+
+  font-size: 4em;
+  font-weight: normal;
+
+}
+.main-title-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  margin: 100px 0;
+  box-sizing: border-box;
+  padding: 50px;
+  background-color: rgba(22,23,25,.81);
 }
 

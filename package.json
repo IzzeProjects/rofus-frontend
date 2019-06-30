@@ -36,6 +36,7 @@
     "stylelint": "^9.*",
     "stylelint-config-standard": "^18.*",
     "stylelint-order": "^2.*",
+    "vee-validate": "^2.2.11",
     "vue": "^2.*",
     "vue-carousel": "^0.18.0",
     "vue-loader": "^15.*",
