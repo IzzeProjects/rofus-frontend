@@ -9,6 +9,7 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
+  z-index: 100;
 }
 
 .modal-login {
@@ -30,6 +31,7 @@
   cursor: pointer;
   transform: rotate(0);
   transition: all .3s ease;
+
 }
 
 .modal-wrapper__close:hover {
@@ -93,4 +95,12 @@
 
 .is-invalid {
   border: 2px solid red;
+}
+
+.modal-wrapper-form__forgot {
+  margin-left: auto;
+}
+
+.modal-wrapper-form__forgot:hover {
+  text-decoration: underline;
 }

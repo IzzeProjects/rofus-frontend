@@ -1,4 +1,4 @@
-let clickOutside = function clickOutside(e) {
+let clickOutside = function (e) {
     let items = this.getElementsByTagName("*")
     let elem = this
     let needClose = true

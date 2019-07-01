@@ -41,6 +41,7 @@
                                data-vv-as="Повторите пароль">
                         <div class="modal-wrapper-form__error">{{ errors.first('password_confirmation') }}</div>
                     </div>
+                    <a href="#" class="modal-wrapper-form__forgot">Забыли пароль ?</a>
                     <button type="submit" class="modal-wrapper-form__button">Отправить</button>
                 </div>
             </form>

@@ -74,7 +74,7 @@
   background: rgba(0,0,0, 0.5);
   right: 0;
   margin: auto;
-  z-index: 123;
+  z-index: 2;
   padding: 0 10px;
   bottom: -10px;
   box-shadow: 0 0 9px #cccccc61;
