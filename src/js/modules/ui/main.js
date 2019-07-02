@@ -1,8 +1,10 @@
-import {events} from './listeners'
+import {events as header} from './header/listeners'
+import {events as sidebar} from './sidebar/listeners'
 // import {clickedSVG} from './header'
 
 let uiModule = () => {
-    events()
+    header()
+    sidebar()
     // clickedSVG()
 };
 
