@@ -63,7 +63,7 @@
 }
 
 .main-header__toggle {
-  background-image: resolve("menu.svg");
+  /*background-image: resolve("menu.svg");*/
   width: 40px;
   height: 40px;
   margin-right: auto;

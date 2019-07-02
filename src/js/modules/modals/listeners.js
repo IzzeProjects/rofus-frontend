@@ -31,6 +31,11 @@ let closeListeners =function() {
     }
 }
 
+// let menuClick = function(){
+//     let svgMenuButton = document.getElementById("header_menu_svg")
+//     svgMenuButton.addEventListener('click', )
+// }
+
 let openModal = function () {
     let formIdent = this.dataset.modalOpen
     let form = document.querySelector("[data-form='" + formIdent + "']")
