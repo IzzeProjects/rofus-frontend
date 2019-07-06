@@ -1,4 +1,5 @@
 import {startAnimSVG, reverseAnimSVG} from "./header";
+
 let events = function () {
     document
         .getElementsByClassName('js-sidebar-open')[0]

@@ -1,15 +1,13 @@
 import {events as header} from './header/listeners'
 import {events as sidebar} from './sidebar/listeners'
-// import {clickedSVG} from './header'
-import {events} from './listeners'
-import {prepareAnimation} from './cardSlider'
+import {prepareAnimation} from './slider/cardSlider'
+import {events as slider} from './slider/listeners'
 
 let uiModule = () => {
     header()
     sidebar()
-    // clickedSVG()
-    events()
     prepareAnimation()
+    slider()
 };
 
 export {
