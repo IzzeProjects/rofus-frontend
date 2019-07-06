@@ -1,9 +1,9 @@
 import {events} from './listeners'
-// import {clickedSVG} from './header'
+import {prepareAnimation} from './cardSlider'
 
 let uiModule = () => {
     events()
-    // clickedSVG()
+    prepareAnimation()
 };
 
 export {

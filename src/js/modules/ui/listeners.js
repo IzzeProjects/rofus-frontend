@@ -1,6 +1,13 @@
 import {escClose, toggle} from "./sidebar";
 import {startAnimSVG, reverseAnimSVG} from "./header";
+import {startAnimation} from "./cardSlider"
+
 let events = function () {
+
+    Array.from(document.getElementsByClassName('dancer-profile-container'))
+        .forEach(function (element) {
+            element.addEventListener('click', startAnimation)
+        })
     document
         .getElementsByClassName('js-sidebar-open')[0]
         .addEventListener('click', toggle)
@@ -18,6 +25,6 @@ let events = function () {
         .addEventListener('click', toggle)
 }
 
-export  {
+export {
     events
 }
