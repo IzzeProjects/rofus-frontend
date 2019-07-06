@@ -14,6 +14,10 @@
   transition: all .8s ease;
 }
 
+.sidebar-wrapper:focus {
+  outline: 0;
+}
+
 .sidebar__forms {
   display: flex;
   flex-flow: column;

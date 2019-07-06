@@ -12,6 +12,10 @@
   z-index: 100;
 }
 
+.modal-wrapper:focus {
+  outline: 0;
+}
+
 .modal-login {
   display: flex;
   flex-flow: column;
