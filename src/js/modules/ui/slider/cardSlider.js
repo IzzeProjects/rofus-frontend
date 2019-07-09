@@ -3,17 +3,19 @@
  */
 let prepareAnimation = function () {
     let allCards = document.getElementsByClassName("dancer-profile-container")
+    let arrows = document.getElementsByClassName("cardSVGArrow")
+
     for (let card = 0; card < allCards.length; card++) {
         if (card === 0) {
             allCards[card].setAttribute("data-position", card)
             allCards[card].classList.add("dancer-profile-card-current")
+            arrows[card].classList.add("arrowShowed")
         } else {
             allCards[card].classList.add("dancer-profile-card-prepared")
             allCards[card].setAttribute("data-position", card)
         }
     }
 }
-
 
 
 /**
@@ -30,12 +32,19 @@ let startAnimation = function () {
     let cardMargin = parseFloat(computedStyle.marginLeft) + parseFloat(computedStyle.marginRight)
     let realCardSize = cardWidth + cardMargin
     let cardPosition = parseFloat(this.getAttribute("data-position"))
+    let arrows = document.getElementsByClassName("cardSVGArrow")
+    let currentArrow = arrows[cardPosition]
 
     parentNodeOfCards.style.width = (((realCardSize * cardPosition) + 800) + (realCardSize * cardPosition - 1)) + "px"
 
-    swapCardStyle(allCards, cardPosition, this)
+    swapCardStyle(allCards, cardPosition, this, arrows)
+    showArrowOnCurrentCard(cardPosition, currentArrow)
 }
 
+let showArrowOnCurrentCard = function (cardPosition, currentArrow) {
+    currentArrow.classList.remove("arrowHidden")
+    currentArrow.classList.add("arrowShowed")
+}
 
 
 /**
@@ -44,14 +53,19 @@ let startAnimation = function () {
  * @param allCards Array of all cards on page
  * @param cardPosition Current card position
  * @param currentElem Current clicked element
+ * @param arrows Array of arrows of cards
  */
-let swapCardStyle = function (allCards, cardPosition, currentElem) {
+let swapCardStyle = function (allCards, cardPosition, currentElem, arrows) {
     for (let card = 0; card < allCards.length; card++) {
         if (card < cardPosition) {
+            arrows[card].classList.remove("arrowShowed")
+            arrows[card].classList.add("arrowHidden")
             allCards[card].classList.remove("dancer-profile-card-prepared")
             allCards[card].classList.remove("dancer-profile-card-current")
             allCards[card].classList.add("dancer-profile-card-reversed")
         } else {
+            arrows[card].classList.remove("arrowShowed");
+            arrows[card].classList.add("arrowHidden")
             allCards[card].classList.remove("dancer-profile-card-reversed")
             allCards[card].classList.remove("dancer-profile-card-current")
             allCards[card].classList.add("dancer-profile-card-prepared")

@@ -15,26 +15,20 @@
 
 .dancer-profile-avatar {
     transition: all .3s ease-out;
-    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
 }
 
 .dancer-profile-card-prepared {
-    transform: perspective(450px) rotateY(-10deg)
+    transform: perspective(450px) rotateY(-10deg);
 }
 
 .dancer-profile-card-reversed {
     transform: perspective(450px) rotateY(10deg)
 }
 
-/*.dancer-profile-card-prepared div {*/
-/*filter: grayscale(1);*/
-/*}*/
-
-/*.dancer-profile-card-reversed div {*/
-/*filter: grayscale(1);*/
-/*}*/
-
+.dancer-profile-card-reversed:hover, .dancer-profile-card-prepared:hover{
+    cursor: pointer;
+}
 .dancer-profile-image {
     width: 100%;
     height: 455px;
@@ -42,34 +36,49 @@
     background-size: cover;
 }
 
-.cardSVGArrow {
-    width: 58px;
+.arrowHidden {
+    width: 0;
     position: absolute;
-    right: 4px;
-    top: 4px;
-    background: rgba(0, 0, 0, .5);
+    padding: 0;
+    display: none;
+    left: -10px;
+    top: 83px;
+    height: 40px;
+    transition: all .3s ease-out;
+}
+
+.arrowShowed:hover {
+    transform: translateZ(75px) translateX(10px);
+    cursor: pointer;
+}
+
+.arrowShowed {
+    transition: all .3s ease-out;
+    width: 50px;
+    position: absolute;
+    height: 40px;
+    overflow: hidden;
+    left: -10px;
+    top: 83px;
+    background: rgba(105, 68, 217, 0.49);
     margin: auto;
-    -webkit-transform: translateZ(3em);
     transform: translateZ(3em);
     z-index: 7;
     padding: 0 10px;
-    box-shadow: 0 0 9px #cccccc61;
+    box-shadow: 0 0 9px #cccccc00;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
 }
 
 .dancer-profile-container:hover {
-    box-shadow: 0 0 50px 20px #fcc403;
+    box-shadow: 0 0 50px 20px #6200ff7a;
     transform: scale(1.1);
-    /*filter: grayscale(0);*/
 }
 
-/*.dancer-profile-container:hover div{*/
-/*filter: grayscale(0);*/
-/*}*/
-
 .dancer-profile-card-current {
-    box-shadow: 0 0 50px 20px #fcc403;
+    box-shadow: 0 0 50px 20px #6200ff7a;
     transform: scale(1.1);
-    /*filter: grayscale(0);*/
 }
 
 .dancers-profiles {
@@ -121,7 +130,7 @@
     text-align: center;
     width: 150px;
     position: absolute;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(26, 15, 59, 0.56);
     right: 0;
     margin: auto;
     transform: translateZ(3em);
