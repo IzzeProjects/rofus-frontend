@@ -1,5 +1,8 @@
+import anime from 'animejs';
+
+
 /**
- * After page load prepares cards, turning them in the direction of future animation
+ * After page load prepares cards, turning them in the direction of future animation.
  */
 let prepareAnimation = function () {
     let allCards = document.getElementsByClassName("dancer-profile-container")
@@ -21,7 +24,7 @@ let prepareAnimation = function () {
 /**
  * This function starts after selected card click.
  *
- * Realise width changing of the .dancers-profile container and creates the effect of card moving
+ * Realise width changing of the .dancers-profile container and creates the effect of card moving.
  */
 let startAnimation = function () {
     let allCards = document.getElementsByClassName("dancer-profile-container")
@@ -34,13 +37,19 @@ let startAnimation = function () {
     let cardPosition = parseFloat(this.getAttribute("data-position"))
     let arrows = document.getElementsByClassName("cardSVGArrow")
     let currentArrow = arrows[cardPosition]
-
     parentNodeOfCards.style.width = (((realCardSize * cardPosition) + 800) + (realCardSize * cardPosition - 1)) + "px"
 
     swapCardStyle(allCards, cardPosition, this, arrows)
     showArrowOnCurrentCard(cardPosition, currentArrow)
 }
 
+
+/**
+ * This function will show arrow that open full description window
+ *
+ * @param cardPosition
+ * @param currentArrow
+ */
 let showArrowOnCurrentCard = function (cardPosition, currentArrow) {
     currentArrow.classList.remove("arrowHidden")
     currentArrow.classList.add("arrowShowed")
@@ -48,7 +57,7 @@ let showArrowOnCurrentCard = function (cardPosition, currentArrow) {
 
 
 /**
- * Realise changing the direction of the cards on both sides of the current card, and selecting the current card as main
+ * Realise changing the direction of the cards on both sides of the current card, and selecting the current card as main.
  *
  * @param allCards Array of all cards on page
  * @param cardPosition Current card position
@@ -74,6 +83,63 @@ let swapCardStyle = function (allCards, cardPosition, currentElem, arrows) {
     currentElem.classList.remove("dancer-profile-card-prepared")
     currentElem.classList.add("dancer-profile-card-current")
 }
+
+
+/**
+ * This function will called after arrow button pressed on selected card.
+ *
+ * This will start animation that show full information block of selected dancer after all cards of dancers will be hidden.
+ */
+let cardSelect = function () {
+    let slider = document.getElementsByClassName("dancers-profiles")[0]
+    anime({
+        targets: '.dancer-profile-container',
+        opacity: 0,
+        perspective: 450,
+        rotateY: 90,
+        delay: anime.stagger(100),
+        complete: function (anim) {
+            setTimeout(function () {
+                slider.style.display = "none"
+            }, 1000)
+        }
+    });
+    setTimeout(function () {
+        slider.style.display = "none"
+        startAnimateFullDescription()
+    }, 500)
+}
+
+
+/**
+ * This function should to be called from { cardSelect() } function.
+ *
+ * This will start animate all elements from full description window, and at the end, full content from this will be showed.
+ */
+let startAnimateFullDescription = function () {
+    anime({
+        targets: '.profile-container-full-description',
+        opacity: 1,
+        perspective: 450,
+        rotateY: 5,
+        translateX: 0
+    })
+    anime.timeline({
+        duration: 250
+    }).add({
+        targets: '.man-info-container',
+        width: 100 + '%',
+        height: 100 + '%',
+        opacity: 1,
+        easing: 'linear'
+    }).add({
+        targets: '.man-main-info-container, .man-additional-info',
+        delay: anime.stagger(400),
+        translateX: 0
+    })
+}
+
+
 export {
-    prepareAnimation, startAnimation
+    prepareAnimation, startAnimation, cardSelect
 }

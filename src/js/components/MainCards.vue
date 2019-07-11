@@ -7,11 +7,8 @@
              @mousemove="move"
              @mouseleave="leave">
             <div class="dancer-profile-avatar">
-                <div class="dancer-profile-full-info-container">
 
-                </div>
-                <div class="cardSVGArrow arrowHidden">
-                    <div class="cardSVGArrowCurtain"></div>
+                <div class="cardSVGArrow arrowHidden" @click="cardClick">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
                          id="Capa_1" x="0px" y="0px" viewBox="0 0 31.49 31.49"
                          style="enable-background:new 0 0 31.49 31.49;" xml:space="preserve">
@@ -32,8 +29,7 @@
              @mouseleave="leave"
         >
             <div class="dancer-profile-avatar">
-                <div class="cardSVGArrow arrowHidden">
-                    <div class="cardSVGArrowCurtain"></div>
+                <div class="cardSVGArrow arrowHidden" @click="cardClick">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
                          id="Capa_1" x="0px" y="0px" viewBox="0 0 31.49 31.49"
                          style="enable-background:new 0 0 31.49 31.49;" xml:space="preserve">
@@ -54,8 +50,7 @@
              @mouseleave="leave"
         >
             <div class="dancer-profile-avatar">
-                <div class="cardSVGArrow arrowHidden">
-                    <div class="cardSVGArrowCurtain"></div>
+                <div class="cardSVGArrow arrowHidden" @click="cardClick">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
                          id="Capa_1" x="0px" y="0px" viewBox="0 0 31.49 31.49"
                          style="enable-background:new 0 0 31.49 31.49;" xml:space="preserve">
@@ -76,8 +71,7 @@
              @mouseleave="leave"
         >
             <div class="dancer-profile-avatar">
-                <div class="cardSVGArrow arrowHidden">
-                    <div class="cardSVGArrowCurtain"></div>
+                <div class="cardSVGArrow arrowHidden" @click="cardClick">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
                          id="Capa_1" x="0px" y="0px" viewBox="0 0 31.49 31.49"
                          style="enable-background:new 0 0 31.49 31.49;" xml:space="preserve">
@@ -98,8 +92,7 @@
              @mouseleave="leave"
         >
             <div class="dancer-profile-avatar">
-                <div class="cardSVGArrow arrowHidden">
-                    <div class="cardSVGArrowCurtain"></div>
+                <div class="cardSVGArrow arrowHidden" @click="cardClick">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
                          id="Capa_1" x="0px" y="0px" viewBox="0 0 31.49 31.49"
                          style="enable-background:new 0 0 31.49 31.49;" xml:space="preserve">
@@ -113,13 +106,13 @@
             </div>
         </div>
 
+
         <div class="dancer-profile-container"
              @mouseenter="enter"
              @mousemove="move"
              @mouseleave="leave">
             <div class="dancer-profile-avatar">
-                <div class="cardSVGArrow arrowHidden">
-                    <div class="cardSVGArrowCurtain"></div>
+                <div class="cardSVGArrow arrowHidden" @click="cardClick">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
                          id="Capa_1" x="0px" y="0px" viewBox="0 0 31.49 31.49"
                          style="enable-background:new 0 0 31.49 31.49;" xml:space="preserve">
@@ -132,6 +125,8 @@
                      style="background-image: url('https://pp.userapi.com/c849228/v849228127/10a785/c05R77j11Gw.jpg')"></div>
             </div>
         </div>
+
+
     </div>
 </template>
 
@@ -179,7 +174,14 @@
                     x: XAngle,
                     y: YAngle
                 }
+            },
+            cardClick(elem) {
+                this.$root.$emit('selectedCard', {
+                    "first_name": "Имя",
+                    "surname": "Фамилия",
+                    "image": "https://pp.userapi.com/c849228/v849228127/10a785/c05R77j11Gw.jpg"
+                })
             }
-        }
+        },
     }
 </script>

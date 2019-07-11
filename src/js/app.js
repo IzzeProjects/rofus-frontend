@@ -8,6 +8,7 @@ import CallbackForm from './components/forms/CallbackForm'
 import MainCards from './components/MainCards'
 import VeeValidate, { Validator } from 'vee-validate';
 import ru from 'vee-validate/dist/locale/ru';
+import FullDescription from './components/fullDescription/FullDescription'
 
 window.onload = () => {
     main()
@@ -34,6 +35,7 @@ Vue.component('login-form', LoginForm)
 Vue.component('register-form', RegisterForm)
 Vue.component('callback-form', CallbackForm)
 Vue.component('main-cards', MainCards)
+Vue.component('full-description', FullDescription)
 
 // ----------------------------------------------------------------------------->
 
