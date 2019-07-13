@@ -1,24 +1,47 @@
 import anime from 'animejs';
 
 
+//-------------------------[PREPARATION]--------------------------------------->
+
+
+//-----------------functions of preparation cards slider----------------------->
+
+
 /**
  * After page load prepares cards, turning them in the direction of future animation.
  */
-let prepareAnimation = function () {
+let prepareAnimation = function (param) {
     let allCards = document.getElementsByClassName("dancer-profile-container")
     let arrows = document.getElementsByClassName("cardSVGArrow")
 
     for (let card = 0; card < allCards.length; card++) {
-        if (card === 0) {
-            allCards[card].setAttribute("data-position", card)
-            allCards[card].classList.add("dancer-profile-card-current")
-            arrows[card].classList.add("arrowShowed")
-        } else {
-            allCards[card].classList.add("dancer-profile-card-prepared")
-            allCards[card].setAttribute("data-position", card)
+        switch (param) {
+            case 0: {
+                if (card === 0) {
+                    allCards[card].setAttribute("data-position", card)
+                    allCards[card].classList.add("dancer-profile-card-current")
+                    arrows[card].classList.add("arrowShowed")
+                } else {
+                    allCards[card].classList.add("dancer-profile-card-prepared")
+                    allCards[card].setAttribute("data-position", card)
+                }
+            }
+                break;
+            case 1: {
+                allCards[card].classList.add("dancer-profile-card-prepared")
+                allCards[card].setAttribute("data-position", card)
+
+            }
+                break;
         }
     }
 }
+
+
+//-------------------------[CARD SELECT EVENT HANDLING]------------------------------->
+
+
+//-----------------functions of animations of card select event----------------------->
 
 
 /**
@@ -85,6 +108,12 @@ let swapCardStyle = function (allCards, cardPosition, currentElem, arrows) {
 }
 
 
+//-------------------------[HANDLING EVENT OF CLICK ON CARD ARROW]--------------------------------->
+
+
+//-----functions of animation of hiding card slider and than, showing fill description section----->
+
+
 /**
  * This function will called after arrow button pressed on selected card.
  *
@@ -137,9 +166,77 @@ let startAnimateFullDescription = function () {
         delay: anime.stagger(400),
         translateX: 0
     })
+
 }
 
 
+//-----------[HANDLING OF BUTTON CLOSE CLICK ON FULL DESCRIPTION SECTION]--------------------------->
+
+
+//--------functions of animation of hiding full-description and than, showing slider again---------->
+
+
+/**
+ * This function start realise hide full description block and that's will start show card slider animation .
+ */
+let startHideFullDescription = function () {
+    let slider = document.getElementsByClassName("dancers-profiles")[0]
+
+    anime({
+        targets: '.profile-container-full-description',
+        opacity: 0,
+        perspective: 450,
+        rotateY: 0,
+        translateX: 0
+    })
+    anime.timeline({
+        duration: 250
+    }).add({
+        targets: '.man-main-info-container, .man-additional-info',
+        delay: anime.stagger(400),
+        translateX: 0
+    }).add({
+        targets: '.man-info-container',
+        width: 0,
+        height: 0,
+        opacity: 0,
+        easing: 'linear'
+    })
+
+    setTimeout(function () {
+        slider.style.display = "flex"
+        showSliderAfterFullDescriptionHided()
+    }, 500)
+}
+
+
+/**
+ * This function realise show slider animation after full description will be hided.
+ */
+let showSliderAfterFullDescriptionHided = function () {
+    let cards = document.getElementsByClassName("dancer-profile-container")
+    anime({
+        targets: '.dancer-profile-container',
+        opacity: 1,
+        perspective: 450,
+        rotateY: 0,
+        delay: anime.stagger(100),
+        complete: function () {
+            for (let card = 0; card < cards.length; card++) {
+                cards[card].setAttribute("style", "")
+            }
+            prepareAnimation(1);
+        }
+    });
+}
+
+
+//------------------------------------------------------------------------------------->
+
+
+//------------------------------------export section----------------------------------->
+
+
 export {
-    prepareAnimation, startAnimation, cardSelect
+    prepareAnimation, startAnimation, cardSelect, startHideFullDescription
 }

@@ -6,7 +6,7 @@ import {events as slider} from './slider/listeners'
 let uiModule = () => {
     header()
     sidebar()
-    prepareAnimation()
+    prepareAnimation(0)
     slider()
 };
 

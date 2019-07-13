@@ -1,4 +1,4 @@
-import {startAnimation, cardSelect} from "./cardSlider";
+import {startAnimation, cardSelect, startHideFullDescription} from "./cardSlider";
 
 let events = function () {
     Array.from(document.getElementsByClassName('dancer-profile-container'))
@@ -10,6 +10,9 @@ let events = function () {
         .forEach(function (element) {
             element.addEventListener('click', cardSelect)
         })
+
+    document.getElementsByClassName("man-info-hide-button")[0]
+        .addEventListener('click', startHideFullDescription)
 }
 
 export {

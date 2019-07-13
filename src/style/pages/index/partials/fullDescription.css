@@ -15,10 +15,37 @@
     transform: translateX(-400px);
     min-height: 100px;
     opacity: 0;
-    top: 100px;
-    left: 300px;
+    top: -50px;
+    left: -50px;
     position: absolute;
     transition: all .1s ease-out;
+}
+
+.main-images-slider-image {
+    width: 300px;
+    height: 400px;
+    background-size: contain;
+    margin: auto;
+    background-image: url(https://pp.userapi.com/c845418/v845418018/18893a/Zk2K7lx2iU4.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.man-info-hide-button {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    background-color: #232323;
+    right: 200px;
+    border-radius: 50%;
+    position: absolute;
+    background-image: url(/img/close.svg);
+    transition: all .3s ease;
+}
+
+.man-info-hide-button:hover {
+    cursor: pointer;
+    transform: rotate(180deg);
 }
 
 .man-info-container {
@@ -26,6 +53,7 @@
     height: 100%;
     display: flex;
     opacity: 0;
+    position: relative;
     flex-flow: wrap;
     background: #000000db;
     padding-left: 300px;

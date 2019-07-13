@@ -6,15 +6,18 @@ import LoginForm from './components/forms/LoginForm'
 import RegisterForm from './components/forms/RegisterForm'
 import CallbackForm from './components/forms/CallbackForm'
 import MainCards from './components/MainCards'
-import VeeValidate, { Validator } from 'vee-validate';
+import VeeValidate, {Validator} from 'vee-validate';
 import ru from 'vee-validate/dist/locale/ru';
 import FullDescription from './components/fullDescription/FullDescription'
+import VueCarousel from 'vue-carousel';
 
 window.onload = () => {
     main()
 }
 
 // ----------------------use-section-------------------------------------------->
+
+Vue.use(VueCarousel);
 
 Vue.use(VeeValidate, {
     classes: true,
